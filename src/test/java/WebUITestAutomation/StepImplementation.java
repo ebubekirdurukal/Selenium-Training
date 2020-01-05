@@ -10,13 +10,11 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.HashSet;
 import static org.assertj.core.api.Assertions.assertThat;
 import base.BaseTest;
-
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -29,6 +27,9 @@ public class StepImplementation extends BaseTest {
     private static By şifreAlani = By.xpath("//input[@id='Password']");
     private static By submitButonu = By.xpath("//button[@class='red-action-button submit-btn']");
     private static By cerezleriKabulEtButonu = By.xpath("//button[contains(text(),'KABUL ET')]");
+    private static By bedavaHizmetKazan=By.xpath("//a[@class='blue bold']");
+    private static By arkadasEmailAdresi=By.xpath("//div[@class='component']//div//div[1]//input[1]");
+    private static By paylasButonu=By.xpath("//button[@class='red-action-button share-btn']");
 
 
     @Step("<email> ve <password> bilgileri ile hesaba giriş yap")
@@ -52,10 +53,11 @@ public class StepImplementation extends BaseTest {
     @Step("<text> yazısı sayfada bulunuyor mu kontrol et")
     public void textControl(String text) throws InterruptedException, IOException {
         List<WebElement> list = driver.findElements(By.xpath("//*[contains(text(),'" + text + "')]"));
-        Assert.assertTrue("Text not found!", list.size() > 0);
-        logger.info(text+ " yazısı sayfada bulundu");
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(scrFile, new File("screenshots/"+text+"_control.png"));
+        Assert.assertTrue("Text not found!", list.size() > 0);
+        logger.info(text+ " yazısı sayfada bulundu");
+
     }
 
 
@@ -86,6 +88,19 @@ public class StepImplementation extends BaseTest {
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(scrFile, new File("screenshots/address_control.png"));
     }
+
+    @Step("<address> adresine hizmet öner")
+    public void recommend(String address){
+        wait.until(ExpectedConditions.presenceOfElementLocated(bedavaHizmetKazan));
+        driver.findElement(bedavaHizmetKazan).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(arkadasEmailAdresi));
+        WebElement arkadasemailadresi = driver.findElement(arkadasEmailAdresi);
+        js.executeScript("arguments[0].scrollIntoView();", arkadasemailadresi);
+        arkadasemailadresi.sendKeys(address);
+        driver.findElement(paylasButonu).click();
+
+    }
+
 
 
 }

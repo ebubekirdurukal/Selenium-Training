@@ -31,5 +31,16 @@ Italyanca Seçim Senaryosu
 * "https://cleanzy.com/" adresine git
 * "España" yazısı sayfada bulunuyor mu kontrol et
 * "United Kingdom" yazısı sayfada bulunuyor mu kontrol et
-* "Turkey" yazısı sayfada bulunuyor mu kontrol et
 * "Italia" elementini seç ve tıkla
+
+
+Geçersiz Email Adresine Hizmet Önerme Senaryosu
+-----------------
+* "https://mutlubiev.com/" adresine git
+* Sayfa çerezlerini Kabul et
+* "ebubekirdr12@gmail.com" ve "123456" bilgileri ile hesaba giriş yap
+* "email..email@domain.com" adresine hizmet öner
+* "Geçersiz e-posta adresi" yazısı sayfada bulunuyor mu kontrol et
+
+
+
