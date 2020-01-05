@@ -26,7 +26,7 @@ Yanlış Kullanıcı Bilgileriyle Login Olma Senaryosu
 * "Mail ya da şifre yanlış." yazısı sayfada bulunuyor mu kontrol et
 
 
-Italyanca Seçim
+Italyanca Seçim Senaryosu
 ---------
 * "https://cleanzy.com/" adresine git
 * "España" yazısı sayfada bulunuyor mu kontrol et
