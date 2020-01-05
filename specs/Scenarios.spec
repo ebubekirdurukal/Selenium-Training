@@ -5,7 +5,7 @@ This is an executable specification file for mutlubiev study case. This file fol
 Every heading in this file denotes a scenario. Every bulleted point denotes a step.
 
 To execute this specification, use the run button
-January 5th 2020
+
 
 
 
